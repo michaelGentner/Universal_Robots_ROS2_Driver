@@ -340,7 +340,20 @@ def launch_setup(context, *args, **kwargs):
         "force_torque_sensor_broadcaster",
         "ur_configuration_controller",
     ]
+<<<<<<< HEAD
     controllers_inactive = ["forward_position_controller"]
+=======
+    controllers_inactive = [
+        "scaled_joint_trajectory_controller",
+        "joint_trajectory_controller",
+        "forward_velocity_controller",
+        "forward_position_controller",
+        "passthrough_trajectory_controller",
+    ]
+    if activate_joint_controller.perform(context) == "true":
+        controllers_active.append(initial_joint_controller.perform(context))
+        controllers_inactive.remove(initial_joint_controller.perform(context))
+>>>>>>> ca5fb3e (Add trajectory passthrough controller (#944))
 
     controller_spawners = [controller_spawner(controllers_active)] + [
         controller_spawner(controllers_inactive, active=False)
@@ -512,6 +525,16 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "initial_joint_controller",
             default_value="scaled_joint_trajectory_controller",
+<<<<<<< HEAD
+=======
+            choices=[
+                "scaled_joint_trajectory_controller",
+                "joint_trajectory_controller",
+                "forward_velocity_controller",
+                "forward_position_controller",
+                "passthrough_trajectory_controller",
+            ],
+>>>>>>> ca5fb3e (Add trajectory passthrough controller (#944))
             description="Initially loaded robot controller.",
         )
     )
