@@ -1,0 +1,5 @@
+repositories:
+  Universal_Robots_ROS2_Description:
+    type: git
+    url: https://github.com/michaelGentner/Universal_Robots_ROS2_Description.git
+    version: humble

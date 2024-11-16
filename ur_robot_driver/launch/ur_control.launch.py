@@ -83,15 +83,15 @@ def launch_setup(context, *args, **kwargs):
     script_sender_port = LaunchConfiguration("script_sender_port")
     trajectory_port = LaunchConfiguration("trajectory_port")
 
-    joint_limit_params = PathJoinSubstitution(
-        [FindPackageShare(description_package), "config", ur_type, "joint_limits.yaml"]
-    )
-    physical_params = PathJoinSubstitution(
-        [FindPackageShare(description_package), "config", ur_type, "physical_parameters.yaml"]
-    )
-    visual_params = PathJoinSubstitution(
-        [FindPackageShare(description_package), "config", ur_type, "visual_parameters.yaml"]
-    )
+    # joint_limit_params = PathJoinSubstitution(
+    #     [FindPackageShare(description_package), "config", ur_type, "joint_limits.yaml"]
+    # )
+    # physical_params = PathJoinSubstitution(
+    #     [FindPackageShare(description_package), "config", ur_type, "physical_parameters.yaml"]
+    # )
+    # visual_params = PathJoinSubstitution(
+    #     [FindPackageShare(description_package), "config", ur_type, "visual_parameters.yaml"]
+    # )
     script_filename = PathJoinSubstitution(
         [FindPackageShare("ur_client_library"), "resources", "external_control.urscript"]
     )
@@ -110,18 +110,18 @@ def launch_setup(context, *args, **kwargs):
             " ",
             "robot_ip:=",
             robot_ip,
-            " ",
-            "joint_limit_params:=",
-            joint_limit_params,
-            " ",
-            "kinematics_params:=",
-            kinematics_params_file,
-            " ",
-            "physical_params:=",
-            physical_params,
-            " ",
-            "visual_params:=",
-            visual_params,
+            # " ",
+            # "joint_limit_params:=",
+            # joint_limit_params,
+            # " ",
+            # "kinematics_params:=",
+            # kinematics_params_file,
+            # " ",
+            # "physical_params:=",
+            # physical_params,
+            # " ",
+            # "visual_params:=",
+            # visual_params,
             " ",
             "safety_limits:=",
             safety_limits,
